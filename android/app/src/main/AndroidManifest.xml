@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tv_controller">
+     <uses-permission android:name="android.permission.TRANSMIT_IR" />
    <application
         android:label="tv_controller"
         android:icon="@mipmap/ic_launcher">

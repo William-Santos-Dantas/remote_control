@@ -34,7 +34,7 @@ class HomePage extends GetView<HomeController> {
                         color: Colors.grey,
                       ),
                       Switch(
-                        value: true,
+                        value: false,
                         onChanged: (value) {},
                       ),
                       const Icon(
@@ -51,18 +51,18 @@ class HomePage extends GetView<HomeController> {
                         offset: const Offset(0, 20),
                         child: ShadowedIconButton(
                           icon: const Icon(Icons.info_outline),
-                          onPress: () {},
+                          onPress: controller.info,
                         ),
                       ),
                       ShadowedIconButton(
                         icon: const Icon(Icons.home),
-                        onPress: () {},
+                        onPress: controller.home,
                       ),
                       Transform.translate(
                         offset: const Offset(0, 20),
                         child: ShadowedIconButton(
                           icon: const Icon(Icons.power_settings_new),
-                          onPress: () {},
+                          onPress: controller.turnOnOff,
                         ),
                       ),
                     ],
@@ -84,24 +84,24 @@ class HomePage extends GetView<HomeController> {
                             const SizedBox.shrink(),
                             ArrowButton(
                               icon: Icons.arrow_drop_up_rounded,
-                              onPress: () {},
+                              onPress: controller.navigateUp,
                             ),
                             const SizedBox.shrink(),
                             ArrowButton(
                               icon: Icons.arrow_left_rounded,
-                              onPress: () {},
+                              onPress: controller.navigateLeft,
                             ),
                             OkButton(
-                              onPress: () {},
+                              onPress: controller.ok,
                             ),
                             ArrowButton(
                               icon: Icons.arrow_right_rounded,
-                              onPress: () {},
+                              onPress: controller.navigateRight,
                             ),
                             const SizedBox.shrink(),
                             ArrowButton(
                               icon: Icons.arrow_drop_down_rounded,
-                              onPress: () {},
+                              onPress: controller.navigateDown,
                             ),
                             const SizedBox.shrink(),
                           ],
@@ -117,18 +117,18 @@ class HomePage extends GetView<HomeController> {
                         offset: const Offset(0, -20),
                         child: ShadowedIconButton(
                           icon: const Icon(Icons.exit_to_app),
-                          onPress: () {},
+                          onPress: controller.exit,
                         ),
                       ),
                       ShadowedIconButton(
                         icon: const Icon(Icons.volume_off),
-                        onPress: () {},
+                        onPress: controller.mute,
                       ),
                       Transform.translate(
                         offset: const Offset(0, -20),
                         child: ShadowedIconButton(
                           icon: const Icon(Icons.arrow_back),
-                          onPress: () {},
+                          onPress: controller.back,
                         ),
                       ),
                     ],
@@ -142,7 +142,7 @@ class HomePage extends GetView<HomeController> {
                           ShadowedIconButton(
                             shadowOpacity: 0,
                             icon: const Icon(Icons.volume_up),
-                            onPress: () {},
+                            onPress: controller.volumeUp,
                           ),
                           const SizedBox(height: 10),
                           Text(
@@ -156,7 +156,7 @@ class HomePage extends GetView<HomeController> {
                           ShadowedIconButton(
                             shadowOpacity: 0,
                             icon: const Icon(Icons.volume_down),
-                            onPress: () {},
+                            onPress: controller.volumeDown,
                           ),
                         ],
                       ),
@@ -165,7 +165,7 @@ class HomePage extends GetView<HomeController> {
                           ShadowedIconButton(
                             shadowOpacity: 0,
                             icon: const Icon(Icons.expand_less),
-                            onPress: () {},
+                            onPress: controller.nextChannel,
                           ),
                           const SizedBox(height: 10),
                           Text(
@@ -179,7 +179,7 @@ class HomePage extends GetView<HomeController> {
                           ShadowedIconButton(
                             shadowOpacity: 0,
                             icon: const Icon(Icons.expand_more),
-                            onPress: () {},
+                            onPress: controller.previousChannel,
                           ),
                         ],
                       ),
@@ -195,7 +195,7 @@ class HomePage extends GetView<HomeController> {
                           Icons.keyboard_arrow_left,
                           size: 24,
                         ),
-                        onPress: () {},
+                        onPress: controller.backwards,
                       ),
                       ShadowedIconButton(
                         padding: const EdgeInsets.all(10),
@@ -206,7 +206,7 @@ class HomePage extends GetView<HomeController> {
                             size: 24,
                           ),
                         ),
-                        onPress: () {},
+                        onPress: controller.play,
                       ),
                       ShadowedIconButton(
                         padding: const EdgeInsets.all(10),
@@ -214,7 +214,7 @@ class HomePage extends GetView<HomeController> {
                           Icons.pause,
                           size: 24,
                         ),
-                        onPress: () {},
+                        onPress: controller.pause,
                       ),
                       ShadowedIconButton(
                         padding: const EdgeInsets.all(10),
@@ -222,7 +222,7 @@ class HomePage extends GetView<HomeController> {
                           Icons.keyboard_arrow_right,
                           size: 24,
                         ),
-                        onPress: () {},
+                        onPress: controller.forward,
                       ),
                     ],
                   ),
@@ -232,19 +232,19 @@ class HomePage extends GetView<HomeController> {
                     children: [
                       ColoredButton(
                         color: Colors.red.shade400,
-                        onPress: () {},
+                        onPress: controller.red,
                       ),
                       ColoredButton(
                         color: Colors.green.shade400,
-                        onPress: () {},
+                        onPress: controller.green,
                       ),
                       ColoredButton(
                         color: Colors.yellow.shade400,
-                        onPress: () {},
+                        onPress: controller.yellow,
                       ),
                       ColoredButton(
                         color: Colors.blue.shade400,
-                        onPress: () {},
+                        onPress: controller.blue,
                       ),
                     ],
                   ),
