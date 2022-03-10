@@ -1,12 +1,39 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:ir_sensor_plugin/ir_sensor_plugin.dart';
 
 import '../../lg_signal_codes.dart';
 
-class HomeController extends GetxController{
-  void _emmit(String json) async {
-    //final _map = jsonDecode(json);
+class HomeController extends GetxController {
+  final _theme = true.obs;
+  get theme => _theme.value;
+  GetStorage storage = GetStorage('controller');
 
+  @override
+  void onReady() {
+    if (storage.read('theme') == "light") {
+      Get.changeThemeMode(ThemeMode.light);
+      _theme(false);
+    } else {
+      Get.changeThemeMode(ThemeMode.dark);
+      _theme(true);
+    }
+    super.onReady();
+  }
+
+  void changeTheme() {
+    if (Get.isDarkMode) {
+      Get.changeThemeMode(ThemeMode.light);
+      storage.write('theme', 'light');
+    } else {
+      storage.write('theme', 'dark');
+      Get.changeThemeMode(ThemeMode.dark);
+    }
+    _theme.toggle();
+  }
+
+  void _emmit(String json) async {
     await IrSensorPlugin.transmitString(pattern: json);
   }
 
@@ -101,5 +128,4 @@ class HomeController extends GetxController{
   void yellow() {
     _emmit(LgSignalCodes.yellow);
   }
-
 }

@@ -33,9 +33,13 @@ class HomePage extends GetView<HomeController> {
                         Icons.light_mode,
                         color: Colors.grey,
                       ),
-                      Switch(
-                        value: false,
-                        onChanged: (value) {},
+                      Obx(
+                        () => Switch(
+                          value: controller.theme,
+                          onChanged: (value) {
+                            controller.changeTheme();
+                          },
+                        ),
                       ),
                       const Icon(
                         Icons.nightlight,
